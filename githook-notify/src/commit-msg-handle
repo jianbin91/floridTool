@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "time down to test"  | /usr/local/bin/terminal-notifier  -sound default
+
+URL=$(/usr/local/bin/rg -oP "http://[^']+" .git/COMMIT_EDITMSG)
+
+echo $URL  | /usr/local/bin/terminal-notifier  -sound default
+
+
+if [ ! -z "$URL" ]
+then
+	sleep 66
+	/usr/local/bin/terminal-notifier -title '🎄🎄🎄' -message '站点发布成功，请点击测试!' -open $URL
+fi
+
+
+
+
+
